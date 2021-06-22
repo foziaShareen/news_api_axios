@@ -2,7 +2,7 @@
 import './App.css';
 import React from 'react';
 import axios from 'axios';
-
+import Loading  from './Loading';
 
  
    class App extends React.Component{
@@ -29,7 +29,7 @@ render(){
    <hr/>
    <p>{user.email}</p>
     </div>)
-   :'loading' }
+   :(<Loading message={this.state}/>) }
     </div>
 
   )
