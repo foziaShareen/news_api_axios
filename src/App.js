@@ -24,11 +24,12 @@ this.state={
      
     
 render(){
-  return(<div>{this.state.users.map(user =><div>
+  return(<div>{!this.state.loading ? this.state.users.map(user =><div>
    <h2> {user.name.first}</h2>,
    <hr/>
    <p>{user.email}</p>
-    </div>)}
+    </div>)
+   :'loading' }
     </div>
 
   )
