@@ -1,40 +1,31 @@
-
-import './App.css';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Loading  from './Loading';
 
- 
-   class App extends React.Component{
-     constructor(props){
-super(props)
-//state
-this.state={
-  users:[]
-}
-     }
-     getUsers(){
-      axios('https://randomuser.me/api/?results=5').then(response => this.setState({users: response.data.results})
-     
-      );
-     }
-     componentWillMount(){
-      this.getUsers();
-    }
-     
+class App extends React.Component{
+  
     
-render(){
-  return(<div>{!this.state.loading ? this.state.users.map(user =><div>
-   <h2> {user.name.first}</h2>,
-   <hr/>
-   <p>{user.email}</p>
-    </div>)
-   :(<Loading message={this.state}/>) }
-    </div>
+    state = {
+      count: 0
+    }
+    increment=()=>{
+      this.setState({
+        count:this.state. count + 1
+      })
+    }
+    
+  
+  
+  render(){
+    return(
+      <div><h2>Counter App</h2>
+      <button onClick={ this.increment }>
+        clicked {this.state.count}times
+      </button>
+      </div>
 
-  )
+    )
+    
+  }
 }
-}
- 
-
-export default App;
+export default App 
